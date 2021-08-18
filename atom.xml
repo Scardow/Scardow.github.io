@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Scardow&#39;s blog</title>
+  
+  
+  <link href="http://example.com/atom.xml" rel="self"/>
+  
+  <link href="http://example.com/"/>
+  <updated>2021-08-16T23:55:34.592Z</updated>
+  <id>http://example.com/</id>
+  
+  <author>
+    <name>Scarce Shadow</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Heap Exploitation</title>
+    <link href="http://example.com/2021/08/17/Heap%20Exploitation/"/>
+    <id>http://example.com/2021/08/17/Heap%20Exploitation/</id>
+    <published>2021-08-16T23:54:01.000Z</published>
+    <updated>2021-08-16T23:55:34.592Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Heap-intro"><a href="#Heap-intro" class="headerlink" title="Heap intro"></a>Heap intro</h2><h3 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Heap-intro&quot;&gt;&lt;a href=&quot;#Heap-intro&quot; class=&quot;headerlink&quot; title=&quot;Heap intro&quot;&gt;&lt;/a&gt;Heap intro&lt;/h2&gt;&lt;h3 id=&quot;Heap&quot;&gt;&lt;a href=&quot;#Heap&quot; class=&quot;head</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
