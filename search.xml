@@ -248,9 +248,13 @@
 <li><a href="https://www.slideshare.net/AngelBoy1?utm_campaign=profiletracking&utm_medium=sssite&utm_source=ssslideview">Angleboy的PPT</a></li>
 </ol>
 ]]></content>
+      <categories>
+        <category>Learning</category>
+      </categories>
       <tags>
         <tag>PWN</tag>
         <tag>Heap exploition</tag>
+        <tag>glibc</tag>
       </tags>
   </entry>
 </search>
