@@ -179,7 +179,7 @@
 
       <div class="post-title">
           <a class="post-title-link" href="/2021/08/17/Heap%20Exploitation/" itemprop="url">
-            <span itemprop="name">Heap Exploitation（主要记录知识框架和利用技巧，更多细节不在此记录）</span>
+            <span itemprop="name">Heap Exploitation</span>
           </a>
       </div>
 
@@ -410,6 +410,35 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : true,
+      notify     : false,
+      appId      : '8AxL2QSQIYEDxtCBSQTOAAlN-gzGzoHsz',
+      appKey     : 'AX8ECMM9tDUdhkATNxySzk49',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
